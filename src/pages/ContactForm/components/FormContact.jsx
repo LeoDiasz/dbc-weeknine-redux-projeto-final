@@ -7,6 +7,7 @@ import { Button } from "../../../components/Button/styles"
 import { ContainerForFormAndLists } from "../../../components/ContainerForFormAndLists/styles"
 import { FormContent } from "../../../components/FormContent/styles"
 import * as ContactActions from "../../../store/actions/ContactActions"
+import { useEffect } from "react"
 
 export const FormContact = ({isUpdate, contactDatasUpdate}) => {
   const {id} = useParams()

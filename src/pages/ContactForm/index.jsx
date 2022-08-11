@@ -1,12 +1,12 @@
 import {useParams, useNavigate} from "react-router-dom"
 import {useState, useEffect} from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSideBar"
 import { FormContact } from "./components/FormContact"
 import { Loading } from "../../components/Loading"
 import { HeaderPages } from "../../components/HeaderPages/styles"
 import { Button } from "../../components/Button/styles"
 import * as ContactActions from "../../store/actions/ContactActions"
-import { useDispatch, useSelector } from "react-redux"
 
 export const ContactForm = () => {
   const {id} = useParams()

@@ -36,6 +36,8 @@ const handleCreateAddress = async (addressDatas, idPerson, navigate) => {
     return
   }
 
+  debugger
+
   addressDatas.cep = formatDataForOnlyNumbers(addressDatas.cep)
   addressDatas.tipo = addressDatas.tipo.toUpperCase()
 

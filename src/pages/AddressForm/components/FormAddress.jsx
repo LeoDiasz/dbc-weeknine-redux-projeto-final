@@ -1,6 +1,5 @@
 import {Formik} from "formik"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { api } from "../../../services/api"
 import { maskCep } from "../../../utils/masks"
 import { AddressSchema } from "../../../utils/validations"
@@ -13,6 +12,7 @@ import * as AddressActions from "../../../store/actions/AddressActions"
 export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
   const {id} = useParams()
   const {idAddress} = useParams()
+  const navigate = useNavigate()
 
   const searchDatasAddressViaCep = async (event, setFieldValue) => {
   
@@ -37,10 +37,6 @@ export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
     
   }
 
-  useEffect(() => {
-
-  }, [addressDatasUpdate])
-
   if(!addressDatasUpdate && isUpdate) {
     return
   }
@@ -64,7 +60,7 @@ export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
         }}
         validationSchema={AddressSchema}
         onSubmit={async (values, {resetForm}) => {
-            isUpdate ? await AddressActions.handleUpdateAddress(values, idAddress, id) : await AddressActions.handleCreateAddress(values, id)
+            isUpdate ? await AddressActions.handleUpdateAddress(values, idAddress, id, navigate) : await AddressActions.handleCreateAddress(values, id, navigate)
             resetForm()
         }}>
         {({errors, values, handleChange, setFieldValue }) => (

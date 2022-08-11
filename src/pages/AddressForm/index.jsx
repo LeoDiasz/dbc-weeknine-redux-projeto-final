@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react"
 import {useParams, useNavigate} from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSideBar"
 import { HeaderPages } from "../../components/HeaderPages/styles"
 import { Button } from "../../components/Button/styles"
 import { Loading } from "../../components/Loading"
 import { FormAddress } from "./components/FormAddress"
 import * as AddressActions from "../../store/actions/AddressActions"
-import { useDispatch, useSelector } from "react-redux"
 
 export const AddressForm = () => {
   const {id} = useParams()
