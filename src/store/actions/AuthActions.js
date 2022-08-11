@@ -33,7 +33,6 @@ const signOut = (navigate, dispatch) => {
     type: "auth/signOut"
   })
   
-
   navigate("/")
 }
 

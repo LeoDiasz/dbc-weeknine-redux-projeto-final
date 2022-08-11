@@ -11,7 +11,7 @@ import { AddressForm } from "./pages/AddressForm"
 import { ContactForm } from "./pages/ContactForm"
 import { Loading } from "./components/Loading"
 import PrivateRoute from "./components/PrivateRoute"
-import * as AuthActions from "./store/actions/AuthAction"
+import * as AuthActions from "./store/actions/AuthActions"
 
 const Routers = () => {
   const dispatch = useDispatch()

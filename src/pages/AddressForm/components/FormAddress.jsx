@@ -8,6 +8,7 @@ import { Button } from "../../../components/Button/styles"
 import { ContainerForFormAndLists } from "../../../components/ContainerForFormAndLists/styles"
 import { FormContent } from "../../../components/FormContent/styles"
 import * as AddressActions from "../../../store/actions/AddressActions"
+import { Loading } from "../../../components/Loading"
 
 export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
   const {id} = useParams()
@@ -38,7 +39,9 @@ export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
   }
 
   if(!addressDatasUpdate && isUpdate) {
-    return
+    return (
+      <Loading/>
+    )
   }
 
   const addressDatas = addressDatasUpdate && addressDatasUpdate

@@ -36,8 +36,6 @@ const handleCreateAddress = async (addressDatas, idPerson, navigate) => {
     return
   }
 
-  debugger
-
   addressDatas.cep = formatDataForOnlyNumbers(addressDatas.cep)
   addressDatas.tipo = addressDatas.tipo.toUpperCase()
 
@@ -51,7 +49,6 @@ const handleCreateAddress = async (addressDatas, idPerson, navigate) => {
     toast.error("Não foi possivel cadastrar o endereço")
   }
 
-  
 }
 
 const handleUpdateAddress = async (datasUpdates, idAddress, idPerson, navigate) => {
@@ -76,6 +73,7 @@ const handleUpdateAddress = async (datasUpdates, idAddress, idPerson, navigate) 
 }
 
 const handleDeleteAddress = async (idAddress, idPerson, dispatch) => {
+  
   if(!idAddress) {
     return
   }

@@ -6,7 +6,7 @@ import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSi
 import { HeaderPages } from "../../components/HeaderPages/styles"
 import { ListAddress } from "../AddressForm/components/ListAddress"
 import { ListContact } from "../ContactForm/components/ListContact"
-import * as PeopleActions from "../../store/actions/PeopleAction"
+import * as PeopleActions from "../../store/actions/PeopleActions"
 import * as AddressActions from "../../store/actions/AddressActions"
 import * as ContactActions from "../../store/actions/ContactActions"
 

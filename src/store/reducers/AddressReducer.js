@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
   listAddressOfPerson: null,
   addressDatasUpdate: null,
+  isUpdate: false,
 }
-
 
 export const AddressReducer = (state = INITIAL_STATE, action) => {
 

@@ -5,7 +5,7 @@ import {ModalDelete} from "../../components/ModalDelete/index"
 import { formatDateExtended, formatCpfWithCaracteres } from "../../utils/formatDatas"
 import {PersonContent} from "./styles"
 import { ButtonWithIcon } from "../Button/styles"
-import * as PeopleActions from "../../store/actions/PeopleAction"
+import * as PeopleActions from "../../store/actions/PeopleActions"
 
 export const PersonCardInfo = ({person, notButtons}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)

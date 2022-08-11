@@ -5,7 +5,7 @@ import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSi
 import { HeaderPages } from "../../components/HeaderPages/styles";
 import { Button } from "../../components/Button/styles";
 import { Loading } from "../../components/Loading";
-import * as PeopleActions from "../../store/actions/PeopleAction"
+import * as PeopleActions from "../../store/actions/PeopleActions"
 import { useSelector, useDispatch } from "react-redux";
 
 export const People = () => {

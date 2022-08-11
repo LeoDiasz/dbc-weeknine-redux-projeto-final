@@ -9,23 +9,24 @@ import { FormAddress } from "./components/FormAddress"
 import * as AddressActions from "../../store/actions/AddressActions"
 
 export const AddressForm = () => {
+  const [loading, setLoading] = useState(true)
   const {id} = useParams()
   const {idAddress} = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [isUpdate, setIsUpdate] = useState(false)
-  const [loading, setLoading] = useState(true)
   const addressDatasUpdate = useSelector(state => state.AddressReducer.addressDatasUpdate)
+  const isUpdate = useSelector(state => state.AddressReducer.isUpdate)
 
   const setup = async () => {
     if (id && idAddress) {
-      setIsUpdate(true)
-
       try {
         await AddressActions.getAddressById(idAddress, dispatch)
       } catch(Error) {
         console.log(Error)
       }
+
+    } else {
+      dispatch({type: "address/notIsUpdate"})
     }
 
     setLoading(false)

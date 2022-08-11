@@ -3,7 +3,7 @@ import { ScreenLoginAndRegisterUser } from "../../components/ScreenLoginAndRegis
 import { Button } from "../../components/Button/styles";
 import {InputField, Label} from "../../components/Input/styles";
 import { FormContent } from "../../components/FormContent/styles";
-import {signIn} from "../../store/actions/AuthAction"
+import {signIn} from "../../store/actions/AuthActions"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

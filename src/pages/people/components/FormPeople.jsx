@@ -4,7 +4,7 @@ import { Button } from "../../../components/Button/styles"
 import { Label, MaskInput, TextValidation, InputField } from "../../../components/Input/styles"
 import { FormStyle } from "../styles"
 import { PersonSchema } from "../../../utils/validations"
-import * as PeopleActions from "../../../store/actions/PeopleAction"
+import * as PeopleActions from "../../../store/actions/PeopleActions"
 import { useNavigate } from "react-router-dom"
 
 export const FormPeople = ({isUpdate, personDatasUpdate}) => {

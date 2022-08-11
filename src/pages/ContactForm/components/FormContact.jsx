@@ -7,7 +7,7 @@ import { Button } from "../../../components/Button/styles"
 import { ContainerForFormAndLists } from "../../../components/ContainerForFormAndLists/styles"
 import { FormContent } from "../../../components/FormContent/styles"
 import * as ContactActions from "../../../store/actions/ContactActions"
-import { useEffect } from "react"
+import { Loading } from "../../../components/Loading"
 
 export const FormContact = ({isUpdate, contactDatasUpdate}) => {
   const {id} = useParams()
@@ -15,11 +15,14 @@ export const FormContact = ({isUpdate, contactDatasUpdate}) => {
   const navigate = useNavigate()
 
   if(!contactDatasUpdate && isUpdate) {
-    return
+    return (
+      <Loading/>
+    )
   }
 
   const contactDatas = contactDatasUpdate && contactDatasUpdate
 
+  debugger
   return (
     <ContainerForFormAndLists display="flex" direction="column" gap="30px">
       <h2>{isUpdate ? "Atualizar contato" : "Criar contato" }</h2>

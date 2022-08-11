@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import {Logo} from "../Logo"
 import { Button } from "../Button/styles"
 import {NavContent, ListContent} from "./styles"
-import * as AuthActions from "../../store/actions/AuthAction"
+import * as AuthActions from "../../store/actions/AuthActions"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 

@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   listContactsOfPerson: null,
   contactDatasForUpdate: null,
+  isUpdate: false,
 }
 
 export const ContactReducer = (state = INITIAL_STATE, action) => {

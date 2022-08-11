@@ -6,7 +6,7 @@ import { Button } from "../../components/Button/styles"
 import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSideBar"
 import { ContainerForFormAndLists } from "../../components/ContainerForFormAndLists/styles"
 import { Loading } from "../../components/Loading"
-import * as PeopleActions from "../../store/actions/PeopleAction"
+import * as PeopleActions from "../../store/actions/PeopleActions"
 import { useDispatch, useSelector } from "react-redux"
 
 export const PeopleForm = () => {

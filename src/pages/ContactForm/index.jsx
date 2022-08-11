@@ -9,24 +9,23 @@ import { Button } from "../../components/Button/styles"
 import * as ContactActions from "../../store/actions/ContactActions"
 
 export const ContactForm = () => {
+  const [loading, setLoading] = useState(true)
   const {id} = useParams()
   const {idContact} = useParams()
   const navigate = useNavigate()
-  const [isUpdate, setIsUpdate] = useState(false)
-  const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
   const contactDatasForUpdate = useSelector(state => state.ContactReducer.contactDatasForUpdate)
+  const isUpdate = useSelector(state => state.ContactReducer.isUpdate)
 
-  
   const setup = async () => {
     if (id && idContact) {
-      setIsUpdate(true)
-
       try {
         await ContactActions.getContactById(idContact, id, dispatch)
       } catch(Error) {
         console.log(Error)
       }
+    } else {
+      dispatch({type: "contact/notIsUpdate"})
     }
 
     setLoading(false)
