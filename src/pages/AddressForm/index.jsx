@@ -1,28 +1,28 @@
 import {useEffect, useState} from "react"
 import {useParams, useNavigate} from "react-router-dom"
-import { useContextAddress } from "../../hooks/useContextAddress"
 import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSideBar"
 import { HeaderPages } from "../../components/HeaderPages/styles"
 import { Button } from "../../components/Button/styles"
 import { Loading } from "../../components/Loading"
 import { FormAddress } from "./components/FormAddress"
+import * as AddressActions from "../../store/actions/AddressActions"
+import { useDispatch, useSelector } from "react-redux"
 
 export const AddressForm = () => {
   const {id} = useParams()
   const {idAddress} = useParams()
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [isUpdate, setIsUpdate] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [addressDatasUpdate, setAddressDatasUpdate] = useState()
-  const {getAddressById} = useContextAddress()
+  const addressDatasUpdate = useSelector(state => state.AddressReducer.addressDatasUpdate)
 
-  
   const setup = async () => {
     if (id && idAddress) {
       setIsUpdate(true)
 
       try {
-        await getAddressById(idAddress, setAddressDatasUpdate)
+        await AddressActions.getAddressById(idAddress, dispatch)
       } catch(Error) {
         console.log(Error)
       }

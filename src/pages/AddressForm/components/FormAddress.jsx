@@ -4,14 +4,13 @@ import { useParams } from "react-router-dom"
 import { api } from "../../../services/api"
 import { maskCep } from "../../../utils/masks"
 import { AddressSchema } from "../../../utils/validations"
-import { useContextAddress } from "../../../hooks/useContextAddress"
 import { Label, MaskInput, InputField, SelectInput, TextValidation } from "../../../components/Input/styles"
 import { Button } from "../../../components/Button/styles"
 import { ContainerForFormAndLists } from "../../../components/ContainerForFormAndLists/styles"
 import { FormContent } from "../../../components/FormContent/styles"
+import * as AddressActions from "../../../store/actions/AddressActions"
 
 export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
-  const {handleCreateAddress , handleUpdateAddress} = useContextAddress()
   const {id} = useParams()
   const {idAddress} = useParams()
 
@@ -65,7 +64,7 @@ export const FormAddress = ({isUpdate, addressDatasUpdate}) => {
         }}
         validationSchema={AddressSchema}
         onSubmit={async (values, {resetForm}) => {
-            isUpdate ? await handleUpdateAddress(values, idAddress, id) : await handleCreateAddress(values, id)
+            isUpdate ? await AddressActions.handleUpdateAddress(values, idAddress, id) : await AddressActions.handleCreateAddress(values, id)
             resetForm()
         }}>
         {({errors, values, handleChange, setFieldValue }) => (

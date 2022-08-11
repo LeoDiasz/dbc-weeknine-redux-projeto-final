@@ -2,14 +2,13 @@ import {useNavigate} from "react-router-dom"
 import {useState} from "react"
 import {RiDeleteBinLine, RiEditBoxLine} from "react-icons/ri"
 import { ModalDelete } from "../ModalDelete"
-import { useContextAddress } from "../../hooks/useContextAddress"
 import { ListAddressContent } from "./styles"
 import { ButtonWithIcon } from "../Button/styles"
 import { formatCepWithCaracteres } from "../../utils/formatDatas"
+import * as AddressActions from "../../store/actions/AddressActions"
 
 export const AddressCardInfo = ({addressDatas, notButtons, idPerson}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
-  const {handleDeleteAddress} = useContextAddress()
   const navigate = useNavigate()
 
   const handleCloseModal = () => {
@@ -42,7 +41,7 @@ export const AddressCardInfo = ({addressDatas, notButtons, idPerson}) => {
         </ButtonWithIcon>
       </div>}
 
-      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={handleDeleteAddress} idDelete={addressDatas.idEndereco} idExtra={idPerson}/>
+      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={AddressActions.handleDeleteAddress} idDelete={addressDatas.idEndereco} idExtra={idPerson}/>
     </ListAddressContent>
   )
 }

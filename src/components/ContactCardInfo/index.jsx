@@ -2,13 +2,12 @@ import {useNavigate} from "react-router-dom"
 import {useState} from "react"
 import {RiDeleteBinLine, RiEditBoxLine} from "react-icons/ri"
 import { ModalDelete } from "../ModalDelete"
-import { useContextContact } from "../../hooks/useContextContact"
 import { ListContactsContainer } from "./styles"
 import { ButtonWithIcon } from "../Button/styles"
+import * as ContactActions from "../../store/actions/ContactActions"
 
 export const ContactCardInfo = ({contactDatas, notButtons, idPerson}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
-  const {handleDeleteContact} = useContextContact()
   const navigate = useNavigate()
 
   const handleCloseModal = () => {
@@ -25,7 +24,6 @@ export const ContactCardInfo = ({contactDatas, notButtons, idPerson}) => {
       <h4>{contactDatas.descricao}</h4>
       <h4>{contactDatas.tipoContato}</h4>
     
-      
       {!notButtons && 
       <div>
         <ButtonWithIcon backgroundColor="#29CC97" onClick={event => navigate(`/contact/update/${idPerson}/${contactDatas.idContato}`)}>
@@ -36,7 +34,7 @@ export const ContactCardInfo = ({contactDatas, notButtons, idPerson}) => {
         </ButtonWithIcon>
       </div>}
 
-      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={handleDeleteContact} idDelete={contactDatas.idContato} idExtra={idPerson}/>
+      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={ContactActions.handleDeleteContact} idDelete={contactDatas.idContato} idExtra={idPerson}/>
     </ListContactsContainer>
   )
 }

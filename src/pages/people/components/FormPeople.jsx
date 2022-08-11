@@ -1,4 +1,3 @@
-import {useEffect} from "react"
 import {Formik} from "formik"
 import { maskCpf, maskDate } from "../../../utils/masks"
 import { Button } from "../../../components/Button/styles"
@@ -7,7 +6,6 @@ import { FormStyle } from "../styles"
 import { PersonSchema } from "../../../utils/validations"
 import * as PeopleActions from "../../../store/actions/PeopleAction"
 import { useNavigate } from "react-router-dom"
-
 
 export const FormPeople = ({isUpdate, personDatasUpdate}) => {
   const navigate = useNavigate()

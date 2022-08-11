@@ -9,7 +9,7 @@ const ModalDelete = ({isOpen, setIsOpen, handleCloseModal, handleDelete, idDelet
   const dispatch = useDispatch()
 
   const handleDeleteButton = async () => {
-    idExtra ? await handleDelete(idDelete, idExtra) : await handleDelete(idDelete, dispatch)
+    idExtra ? await handleDelete(idDelete, idExtra, dispatch) : await handleDelete(idDelete, dispatch)
     setIsOpen(false)
   }
 

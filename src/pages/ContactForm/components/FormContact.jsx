@@ -1,22 +1,17 @@
 import {Formik} from "formik"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { useContextContact } from "../../../hooks/useContextContact"
+import { useParams, useNavigate} from "react-router-dom"
 import { maskPhone } from "../../../utils/masks"
 import { ContactSchema } from "../../../utils/validations"
 import { Label, MaskInput, InputField, SelectInput, TextValidation } from "../../../components/Input/styles"
 import { Button } from "../../../components/Button/styles"
 import { ContainerForFormAndLists } from "../../../components/ContainerForFormAndLists/styles"
 import { FormContent } from "../../../components/FormContent/styles"
+import * as ContactActions from "../../../store/actions/ContactActions"
 
 export const FormContact = ({isUpdate, contactDatasUpdate}) => {
   const {id} = useParams()
   const {idContact} = useParams()
-  const {handleCreateContact , handleUpdateContact} = useContextContact()
-
-  useEffect(() => {
-
-  }, [contactDatasUpdate])
+  const navigate = useNavigate()
 
   if(!contactDatasUpdate && isUpdate) {
     return
@@ -36,7 +31,7 @@ export const FormContact = ({isUpdate, contactDatasUpdate}) => {
         }}
         validationSchema={ContactSchema}
         onSubmit={async (values, {resetForm}) => {
-            isUpdate ? await handleUpdateContact(values, idContact, id) : await handleCreateContact(values, id)
+            isUpdate ? await ContactActions.handleUpdateContact(values, idContact, id, navigate) : await ContactActions.handleCreateContact(values, id, navigate)
             resetForm()
         }}>
         {({errors, values, handleChange, setFieldValue }) => (
