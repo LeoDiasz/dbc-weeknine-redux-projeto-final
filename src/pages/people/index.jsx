@@ -1,12 +1,12 @@
-import {useEffect, useState} from "react"
+import {useEffect} from "react"
 import {useNavigate} from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux";
 import { ListPeople } from "./components/ListPeople";
 import { ContainerPagesWithSideBar } from "../../components/ContainerPagesWithSideBar";
 import { HeaderPages } from "../../components/HeaderPages/styles";
 import { Button } from "../../components/Button/styles";
 import { Loading } from "../../components/Loading";
 import * as PeopleActions from "../../store/actions/PeopleActions"
-import { useSelector, useDispatch } from "react-redux";
 
 export const People = () => {
   const dispatch = useDispatch()
@@ -29,12 +29,11 @@ export const People = () => {
     )
   }
 
-
   return (
     <ContainerPagesWithSideBar isMain>
       <HeaderPages>
         <h2>Pessoas</h2>
-        <Button width="150px" onClick={event => navigate("/people/create")}>Cadastrar pessoas</Button>
+        <Button width="150px" onClick={() => navigate("/people/create")}>Cadastrar pessoas</Button>
       </HeaderPages>
       {listPeople && <ListPeople listPeopleDatas={listPeople}/>}
     </ContainerPagesWithSideBar>

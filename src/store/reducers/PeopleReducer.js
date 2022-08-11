@@ -21,7 +21,6 @@ export const PeopleReducer = (state = INITIAL_STATE, action) => {
         ...state,
         personDatas: action.personDatas,
         isUpdate: true,
-        loading: false
       }
 
     case "people/notIsUpdate":
@@ -34,6 +33,11 @@ export const PeopleReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true
+      }
+    case "people/disabledLoading":
+      return {
+        ...state,
+        loading: false,
       } 
 
     default: 

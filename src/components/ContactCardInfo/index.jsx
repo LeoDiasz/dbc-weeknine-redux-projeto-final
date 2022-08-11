@@ -10,10 +10,6 @@ export const ContactCardInfo = ({contactDatas, notButtons, idPerson}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const navigate = useNavigate()
 
-  const handleCloseModal = () => {
-    setIsOpenModal(false)
-  }
-
   const handleOpenModal = () => {
     setIsOpenModal(true)
   }
@@ -34,7 +30,7 @@ export const ContactCardInfo = ({contactDatas, notButtons, idPerson}) => {
         </ButtonWithIcon>
       </div>}
 
-      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={ContactActions.handleDeleteContact} idDelete={contactDatas.idContato} idExtra={idPerson}/>
+      <ModalDelete isOpen={isOpenModal} setIsOpen={setIsOpenModal} handleDelete={ContactActions.handleDeleteContact} idDelete={contactDatas.idContato} idExtra={idPerson}/>
     </ListContactsContainer>
   )
 }

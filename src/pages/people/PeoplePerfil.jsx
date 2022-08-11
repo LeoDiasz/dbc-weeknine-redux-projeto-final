@@ -16,7 +16,6 @@ export const PeoplePerfil = () => {
   const {id} = useParams()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
-
   const dispatch = useDispatch()
   const personDatas = useSelector(state => state.PeopleReducer.personDatas)
   const listAddressOfPerson = useSelector(state => state.AddressReducer.listAddressOfPerson)
@@ -43,7 +42,7 @@ export const PeoplePerfil = () => {
     <ContainerPagesWithSideBar >
       <HeaderPages>
         {personDatas && <h3>Usuário: {personDatas.nome}</h3>}
-        <Button onClick={event => navigate("/people")}>Voltar</Button>
+        <Button onClick={() => navigate("/people")}>Voltar</Button>
       </HeaderPages>
       <ListAddress listAddress={listAddressOfPerson} id={id}/>
       <ListContact listContacts={listContactsOfPerson} id={id}/>

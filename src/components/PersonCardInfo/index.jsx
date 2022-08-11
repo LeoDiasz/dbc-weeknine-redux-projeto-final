@@ -12,10 +12,6 @@ export const PersonCardInfo = ({person, notButtons}) => {
   const dateBirth = formatDateExtended(person.dataNascimento)
   const navigate = useNavigate()
 
-  const handleCloseModal = () => {
-    setIsOpenModal(false)
-  }
-
   const handleOpenModal = () => {
     setIsOpenModal(true)
   }
@@ -38,7 +34,7 @@ export const PersonCardInfo = ({person, notButtons}) => {
           </ButtonWithIcon>
         </div>}
 
-      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} handleDelete={PeopleActions.handleDeletePerson} idDelete={person.idPessoa} setIsOpen={setIsOpenModal}/>
+      <ModalDelete isOpen={isOpenModal} handleDelete={PeopleActions.handleDeletePerson} idDelete={person.idPessoa} setIsOpen={setIsOpenModal}/>
     </PersonContent>
   )
 }

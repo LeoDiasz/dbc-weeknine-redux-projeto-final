@@ -20,18 +20,17 @@ export const FormContact = ({isUpdate, contactDatasUpdate}) => {
     )
   }
 
-  const contactDatas = contactDatasUpdate && contactDatasUpdate
+  const isUpdateAndHasDatasContact = contactDatasUpdate && isUpdate
 
-  debugger
   return (
     <ContainerForFormAndLists display="flex" direction="column" gap="30px">
       <h2>{isUpdate ? "Atualizar contato" : "Criar contato" }</h2>
       <Formik
         initialValues={{
           idPessoa: parseInt(id),
-          tipoContato: contactDatas && isUpdate ? contactDatas.cidade : "RESIDENCIAL",
-          telefone: contactDatas && isUpdate ? contactDatas.telefone : "",
-          descricao: contactDatas && isUpdate ? contactDatas.descricao : "",
+          tipoContato: isUpdateAndHasDatasContact ? contactDatasUpdate.tipoContato : "RESIDENCIAL",
+          telefone: isUpdateAndHasDatasContact ? contactDatasUpdate.telefone : "",
+          descricao: isUpdateAndHasDatasContact ? contactDatasUpdate.descricao : "",
         }}
         validationSchema={ContactSchema}
         onSubmit={async (values, {resetForm}) => {

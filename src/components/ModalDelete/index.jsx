@@ -5,11 +5,15 @@ import {useDispatch} from "react-redux"
 
 Modal.setAppElement("#root")
 
-const ModalDelete = ({isOpen, setIsOpen, handleCloseModal, handleDelete, idDelete, idExtra}) => {
+const ModalDelete = ({isOpen, setIsOpen, handleDelete, idDelete, idExtra}) => {
   const dispatch = useDispatch()
 
   const handleDeleteButton = async () => {
     idExtra ? await handleDelete(idDelete, idExtra, dispatch) : await handleDelete(idDelete, dispatch)
+    setIsOpen(false)
+  }
+
+  const handleCloseModal = () => {
     setIsOpen(false)
   }
 

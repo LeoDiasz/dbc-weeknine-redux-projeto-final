@@ -11,10 +11,6 @@ export const AddressCardInfo = ({addressDatas, notButtons, idPerson}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const navigate = useNavigate()
 
-  const handleCloseModal = () => {
-    setIsOpenModal(false)
-  }
-
   const handleOpenModal = () => {
     setIsOpenModal(true)
   }
@@ -41,7 +37,7 @@ export const AddressCardInfo = ({addressDatas, notButtons, idPerson}) => {
         </ButtonWithIcon>
       </div>}
 
-      <ModalDelete isOpen={isOpenModal} handleCloseModal={handleCloseModal} setIsOpen={setIsOpenModal} handleDelete={AddressActions.handleDeleteAddress} idDelete={addressDatas.idEndereco} idExtra={idPerson}/>
+      <ModalDelete isOpen={isOpenModal} setIsOpen={setIsOpenModal} handleDelete={AddressActions.handleDeleteAddress} idDelete={addressDatas.idEndereco} idExtra={idPerson}/>
     </ListAddressContent>
   )
 }

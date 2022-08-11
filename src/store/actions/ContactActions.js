@@ -7,7 +7,7 @@ const getContactById = async (idContact, idPerson, dispatch) => {
 
   const contactDatas = listContacts.filter(contact => contact.idContato == idContact)
 
-  const setContact = {type: "contact/contactDatasUpdate", contactDatasForUpdate: contactDatas}
+  const setContact = {type: "contact/contactDatasUpdate", contactDatasForUpdate: contactDatas[0]}
     
   dispatch(setContact)
 
