@@ -11,7 +11,7 @@
 <p align="center">
   
  ## 🎥 Demo
-  <a href="https://zeonity-enterprise.vercel.app/">
+  <a href="https://dbc-weeknine-redux-projeto-final.vercel.app/">
    <img alt="Zeonity"  src="https://cdn.discordapp.com/attachments/936094333248086058/1004000411851685928/0.2_-_Criar_conta.png" width="100%">
  </a>
  
@@ -23,10 +23,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [React](https://reactjs.org)
 - [styled-components](https://styled-components.com/)
+- [Redux](https://redux.js.org/)
 
 ## 💻 Projeto
 
-O projeto Zeonity foi desenvolvido no projeto final do modulo de contexto de react no programa Vem ser da DBC. 
+O projeto Zeonity foi desenvolvido no projeto final do modulo de redux no programa Vem ser da DBC. 
 
 
 ## 🔋 Requisitos Funcionais
